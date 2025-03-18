@@ -49,8 +49,8 @@ public class Deadline  {
             Date now = new Date();
             
             if(now.after(deadline.getDeadline())){
-                repository().delete(deadline);   
                 new DeadlineReached(deadline).publishAfterCommit();
+                repository().delete(deadline);   
             }
         });
     }
